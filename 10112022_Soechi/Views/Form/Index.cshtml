@@ -1,0 +1,63 @@
+﻿@model FormModel
+@{
+}
+
+<div class="col-md-4">
+    <form method="post" asp-controller="Form" asp-action="Index" role="form">
+        <div class="form-control">
+            <div class="mb-3">
+                 <label class="fg-labels" for="itemdesc">Item Description</label>
+                 <input type="text" class="form-control" asp-for="ItemDescription" id="itemdesc">    
+            </div>
+
+            <div class="mb-3">
+                    <label class="fg-labels" for="uom">UOM</label>
+                    <select asp-items="@(new SelectList(Model.uoms, "ID","Name"))"
+                    name="uom" onchange="_OnChange(value)">
+                        <option value="">---Select---</option>
+                    </select>
+            </div>
+
+            <div class="mb-3">
+                    <label class="fg-labels" for="rate">Rate</label>
+                    <input type="number" disabled="disabled" class="form-control" asp-for="Rate" id="rate">  
+            </div>
+
+            <div class="mb-3">
+                <label class="fg-labels" for="qty">QTY</label>
+                 <input type="number" id="qty" class="form-control" onkeyup="_OnkeyUp()" asp-for="QTY">  
+            </div>
+
+            <div class="mb-3">
+                <label class="fg-labels" for="qty_kecil">QTY Kecil</label>
+                 <input type="number"disabled="disabled" id="qty_kecil" class="form-control" asp-for="QTYKecil">  
+            </div>
+
+             <div class="mb-3">
+                <label class="fg-labels" for="qty_kecil">UnitPrice</label>
+                 <input type="number" id="unitprice" class="form-control" asp-for="UnitPrice">  
+            </div>
+
+             <div class="mb-3">
+                <label class="fg-labels" for="qty_kecil">Discount</label>
+                 <input type="text" id="discount" class="form-control" onkeyup="_OnkeyUpDiscount()" asp-for="Discount">  
+            </div>
+
+            <div class="mb-3">
+                <label class="fg-labels" for="qty_kecil">DiscountAmt</label>
+                 <input type="text" disabled="disabled" id="discountamt" class="form-control" asp-for="DiscountAmt">  
+            </div>
+
+            <div class="mb-3">
+                <label class="fg-labels" for="qty_kecil">Total</label>
+                 <input type="text" disabled="disabled" id="total" class="form-control" asp-for="Total">  
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+@*logic ada di javascript site.js thanks :)*@
+<script src="~/js/site.js"></script>
+

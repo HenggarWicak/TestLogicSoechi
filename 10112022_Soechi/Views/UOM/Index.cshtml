@@ -1,0 +1,28 @@
+﻿@model List<_10112022_Soechi.Models.UomModel>
+@{
+}
+
+<div class="col-md-4">
+    <form asp-controller="UOM" asp-action="Index" method="get" role="form">
+        <div class="form-control">       
+			<table class="table">
+				<thead>
+					<tr> 
+						<th>Satuan</th>
+						<th>Rate</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var uom in Model)
+					{
+					<tr>
+						<td>@uom.UOMName</td>
+						<td>@uom.UOMRate</td>
+					</tr>
+					}
+				</tbody>
+			</table>
+        </div>
+    </form>
+</div>
+
